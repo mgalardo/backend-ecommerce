@@ -31,6 +31,7 @@ public class UserController {
     @GetMapping
     @CrossOrigin(origins = "http://localhost:3000")
     public User getUserByEmail(@RequestParam String email, @RequestParam String password) {
+        // TODO: DO NOT RETURN PASSWORD TO FRONTEND
         // TODO: DO PASSWORD SAVE WITH JWT 
         User user = userRepository.findByEmail(email).orElseThrow(NotFoundException::new);
         if (user.getPassword().equals(password)) {
